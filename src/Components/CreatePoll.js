@@ -16,12 +16,12 @@ function CreatePoll() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //   const response = await axios.post("/api/polls", { question, options });
-    //   console.log(response.data);
-    // } catch (error) {
-    //   console.error("Error creating poll", error);
-    // }
+    try {
+      const response = await axios.post("/api/polls", { question, options });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error creating poll", error);
+    }
   };
   return (
     <form onSubmit={handleSubmit}>

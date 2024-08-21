@@ -1,15 +1,20 @@
-import "./App.css";
-import CreatePoll from "./Components/CreatePoll";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import PollPage from "./pages/PollPage";
 
-import HomePage from "./Components/Home";
+import CreatePoll from "./components/CreatePoll";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <HomePage />
-      <CreatePoll />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/create" component={CreatePoll} />
+        <Route path="/polls/:id" component={PollPage} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
